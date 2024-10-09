@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { Polyline, type LatLngExpression, type PolylineOptions } from 'leaflet';
+  import { type LatLngExpression, Polyline, type PolylineOptions } from 'leaflet';
   import { getContext, onMount } from 'svelte';
 
   const {

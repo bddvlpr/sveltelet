@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { LayerContextKey, type LayerContext } from '$lib/context/layer.js';
-  import { MapContextKey, type MapContext } from '$lib/context/map.js';
-  import { Marker, type LatLngExpression, type MarkerOptions } from 'leaflet';
+  import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
+  import { type MapContext, MapContextKey } from '$lib/context/map.js';
+  import { type LatLngExpression, Marker, type MarkerOptions } from 'leaflet';
   import { getContext, onMount, setContext, type Snippet } from 'svelte';
 
   const mapContext = getContext<MapContext>(MapContextKey);

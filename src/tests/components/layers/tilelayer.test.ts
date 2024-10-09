@@ -1,7 +1,6 @@
-import { it, vi, expect, describe } from 'vitest';
+import { ControlContextKey, LayerContextKey, MapContextKey, TileLayer } from '$lib/index.js';
 import { render } from '@testing-library/svelte';
-
-import { TileLayer, LayerContextKey, MapContextKey, ControlContextKey } from '$lib/index.js';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('renders', () => {
   describe('map parent', () => {
@@ -21,9 +20,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => control
             }
           ],
           [
@@ -34,9 +33,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => control
+              getMap: () => map
             }
           ]
         ])
@@ -62,9 +61,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => null
             }
           ],
           [
@@ -75,9 +74,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => null
+              getMap: () => map
             }
           ]
         ])
@@ -100,9 +99,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => null
             }
           ],
           [
@@ -113,9 +112,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => null
+              getMap: () => map
             }
           ]
         ])
@@ -144,9 +143,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => control
             }
           ],
           [
@@ -157,9 +156,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => control
+              getMap: () => map
             }
           ]
         ])
@@ -188,9 +187,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => control
             }
           ],
           [
@@ -201,9 +200,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => control
+              getMap: () => map
             }
           ]
         ])
@@ -229,9 +228,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => control
             }
           ],
           [
@@ -242,9 +241,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => control
+              getMap: () => map
             }
           ]
         ])
@@ -273,9 +272,9 @@ describe('renders', () => {
         },
         context: new Map([
           [
-            MapContextKey,
+            ControlContextKey,
             {
-              getMap: () => map
+              getLayerControl: () => control
             }
           ],
           [
@@ -286,9 +285,9 @@ describe('renders', () => {
             }
           ],
           [
-            ControlContextKey,
+            MapContextKey,
             {
-              getLayerControl: () => control
+              getMap: () => map
             }
           ]
         ])
@@ -307,9 +306,9 @@ describe('effects', () => {
         url: 'https://placebo.bddvlpr.com/{z}/{x}/{y}.png'
       },
       context: new Map([
-        [MapContextKey, { getMap: () => ({ addLayer: vi.fn() }) }],
+        [ControlContextKey, { getLayerControl: () => null }],
         [LayerContextKey, { getLayerGroup: () => null, getLayer: () => null }],
-        [ControlContextKey, { getLayerControl: () => null }]
+        [MapContextKey, { getMap: () => ({ addLayer: vi.fn() }) }]
       ])
     });
     const tileLayer = component.getTileLayer();

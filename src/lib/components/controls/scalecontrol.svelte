@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { MapContextKey, type MapContext } from '$lib/context/map.js';
+  import { type MapContext, MapContextKey } from '$lib/context/map.js';
   import { Control } from 'leaflet';
   import { getContext } from 'svelte';
 

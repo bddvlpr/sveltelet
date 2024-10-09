@@ -1,6 +1,6 @@
 <script lang="ts">
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
-  import { MapContextKey, type MapContext } from '$lib/context/map.js';
+  import { type MapContext, MapContextKey } from '$lib/context/map.js';
   import { Control } from 'leaflet';
   import { getContext, onMount, setContext, type Snippet } from 'svelte';
 

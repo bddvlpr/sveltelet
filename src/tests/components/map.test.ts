@@ -1,8 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { render } from '@testing-library/svelte';
-
 import { Map } from '$lib/index.js';
+import { render } from '@testing-library/svelte';
 import { LatLngBounds, type MapOptions } from 'leaflet';
+import { describe, expect, it } from 'vitest';
 
 const DEFAULT_PROPS: MapOptions = {
   zoom: 11,

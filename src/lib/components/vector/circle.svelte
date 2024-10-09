@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { LayerContextKey, type LayerContext } from '$lib/context/layer.js';
-  import { MapContextKey, type MapContext } from '$lib/context/map.js';
+  import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
+  import { type MapContext, MapContextKey } from '$lib/context/map.js';
   import { Circle, type CircleOptions, type LatLngExpression } from 'leaflet';
   import { getContext, onMount } from 'svelte';
 

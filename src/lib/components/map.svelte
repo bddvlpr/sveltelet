@@ -1,11 +1,12 @@
 <script lang="ts">
   import type { Map, MapOptions } from 'leaflet';
-  import L from 'leaflet';
-  import { onMount, setContext, type Snippet } from 'svelte';
-  import 'leaflet/dist/leaflet.css';
-  import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
+
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
+  import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
+  import { type MapContext, MapContextKey } from '$lib/context/map.js';
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+  import { onMount, setContext, type Snippet } from 'svelte';
 
   const {
     children,

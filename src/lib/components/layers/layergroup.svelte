@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { ControlContextKey, type ControlContext } from '$lib/context/control.js';
-  import { LayerContextKey, type LayerContext } from '$lib/context/layer.js';
+  import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
+  import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { LayerGroup, tileLayer, type LayerOptions } from 'leaflet';
+  import { LayerGroup, type LayerOptions } from 'leaflet';
   import { getContext, onMount, setContext, type Snippet } from 'svelte';
 
   const {

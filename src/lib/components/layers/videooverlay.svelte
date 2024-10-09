@@ -2,7 +2,7 @@
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { VideoOverlay, type ImageOverlayOptions, type LatLngBoundsExpression } from 'leaflet';
+  import { type ImageOverlayOptions, type LatLngBoundsExpression, VideoOverlay } from 'leaflet';
   import { getContext, onMount, setContext, type Snippet } from 'svelte';
 
   const {

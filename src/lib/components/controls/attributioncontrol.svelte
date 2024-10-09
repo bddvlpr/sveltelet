@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
   import { Control } from 'leaflet';
-  import { getContext, onMount } from 'svelte';
+  import { getContext } from 'svelte';
 
   const {
     text,
