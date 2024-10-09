@@ -25,7 +25,7 @@ importers:
         version: 6.5.0
       '@testing-library/svelte':
         specifier: ^5.2.3
-        version: 5.2.3(svelte@5.0.0-next.262)(vite@5.4.8)(vitest@2.1.2(jsdom@25.0.1))
+        version: 5.2.3(svelte@5.0.0-next.262)(vite@5.4.8)(vitest@2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1))
       '@types/eslint':
         specifier: ^9.6.0
         version: 9.6.1
@@ -67,7 +67,7 @@ importers:
         version: 5.0.0-next.262
       svelte-check:
         specifier: ^4.0.0
-        version: 4.0.4(svelte@5.0.0-next.262)(typescript@5.6.2)
+        version: 4.0.4(picomatch@4.0.2)(svelte@5.0.0-next.262)(typescript@5.6.2)
       typescript:
         specifier: ^5.0.0
         version: 5.6.2
@@ -79,7 +79,7 @@ importers:
         version: 5.4.8
       vitest:
         specifier: ^2.0.0
-        version: 2.1.2(jsdom@25.0.1)
+        version: 2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1)
 
 packages:
 
@@ -569,6 +569,11 @@ packages:
   '@vitest/spy@2.1.2':
     resolution: {integrity: sha512-GSUi5zoy+abNRJwmFhBDC0yRuVUn8WMlQscvnbbXdKLXX9dE59YbfwXxuJ/mth6eeqIzofU8BB5XDo/Ns/qK2A==}
 
+  '@vitest/ui@2.1.2':
+    resolution: {integrity: sha512-92gcNzkDnmxOxyHzQrQYRsoV9Q0Aay0r4QMLnV+B+lbqlUWa8nDg9ivyLV5mMVTtGirHsYUGGh/zbIA55gBZqA==}
+    peerDependencies:
+      vitest: 2.1.2
+
   '@vitest/utils@2.1.2':
     resolution: {integrity: sha512-zMO2KdYy6mx56btx9JvAqAZ6EyS3g49krMPPrgOp1yxGZiA93HumGk+bZ5jIZtOg5/VBYl5eBmGRQHqq4FG6uQ==}
 
@@ -904,6 +909,9 @@ packages:
       picomatch:
         optional: true
 
+  fflate@0.8.2:
+    resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
+
   file-entry-cache@8.0.0:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
@@ -1231,6 +1239,10 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
+  picomatch@4.0.2:
+    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+    engines: {node: '>=12'}
+
   postcss-load-config@3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
@@ -1428,6 +1440,10 @@ packages:
 
   tinyexec@0.3.0:
     resolution: {integrity: sha512-tVGE0mVJPGb0chKhqmsoosjsS+qUnJVGJpZgsHYQcGoPlG3B51R3PouqTgEGH2Dc9jjFyOqOpix6ZHNMXp1FZg==}
+
+  tinyglobby@0.2.9:
+    resolution: {integrity: sha512-8or1+BGEdk1Zkkw2ii16qSS7uVrQJPre5A9o/XkWPATkk23FZh/15BKFxPnlTy6vkljZxLqYCzzBMj30ZrSvjw==}
+    engines: {node: '>=12.0.0'}
 
   tinypool@1.0.1:
     resolution: {integrity: sha512-URZYihUbRPcGv95En+sz6MfghfIc2OJ1sv/RmhWZLouPY0/8Vo80viwPvg3dlaS9fuq7fQMEfgRRK7BBZThBEA==}
@@ -1935,13 +1951,13 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/svelte@5.2.3(svelte@5.0.0-next.262)(vite@5.4.8)(vitest@2.1.2(jsdom@25.0.1))':
+  '@testing-library/svelte@5.2.3(svelte@5.0.0-next.262)(vite@5.4.8)(vitest@2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1))':
     dependencies:
       '@testing-library/dom': 10.4.0
       svelte: 5.0.0-next.262
     optionalDependencies:
       vite: 5.4.8
-      vitest: 2.1.2(jsdom@25.0.1)
+      vitest: 2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1)
 
   '@types/aria-query@5.0.4': {}
 
@@ -2076,6 +2092,18 @@ snapshots:
   '@vitest/spy@2.1.2':
     dependencies:
       tinyspy: 3.0.2
+
+  '@vitest/ui@2.1.2(vitest@2.1.2)':
+    dependencies:
+      '@vitest/utils': 2.1.2
+      fflate: 0.8.2
+      flatted: 3.3.1
+      pathe: 1.1.2
+      sirv: 2.0.4
+      tinyglobby: 0.2.9
+      tinyrainbow: 1.2.0
+      vitest: 2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1)
+    optional: true
 
   '@vitest/utils@2.1.2':
     dependencies:
@@ -2425,7 +2453,12 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
-  fdir@6.4.0: {}
+  fdir@6.4.0(picomatch@4.0.2):
+    optionalDependencies:
+      picomatch: 4.0.2
+
+  fflate@0.8.2:
+    optional: true
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -2734,6 +2767,9 @@ snapshots:
 
   picomatch@2.3.1: {}
 
+  picomatch@4.0.2:
+    optional: true
+
   postcss-load-config@3.1.4(postcss@8.4.47):
     dependencies:
       lilconfig: 2.1.0
@@ -2876,11 +2912,11 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  svelte-check@4.0.4(svelte@5.0.0-next.262)(typescript@5.6.2):
+  svelte-check@4.0.4(picomatch@4.0.2)(svelte@5.0.0-next.262)(typescript@5.6.2):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 4.0.1
-      fdir: 6.4.0
+      fdir: 6.4.0(picomatch@4.0.2)
       picocolors: 1.1.0
       sade: 1.8.1
       svelte: 5.0.0-next.262
@@ -2933,6 +2969,12 @@ snapshots:
   tinybench@2.9.0: {}
 
   tinyexec@0.3.0: {}
+
+  tinyglobby@0.2.9:
+    dependencies:
+      fdir: 6.4.0(picomatch@4.0.2)
+      picomatch: 4.0.2
+    optional: true
 
   tinypool@1.0.1: {}
 
@@ -3018,7 +3060,7 @@ snapshots:
     optionalDependencies:
       vite: 5.4.8
 
-  vitest@2.1.2(jsdom@25.0.1):
+  vitest@2.1.2(@vitest/ui@2.1.2)(jsdom@25.0.1):
     dependencies:
       '@vitest/expect': 2.1.2
       '@vitest/mocker': 2.1.2(@vitest/spy@2.1.2)(vite@5.4.8)
@@ -3040,6 +3082,7 @@ snapshots:
       vite-node: 2.1.2
       why-is-node-running: 2.3.0
     optionalDependencies:
+      '@vitest/ui': 2.1.2(vitest@2.1.2)
       jsdom: 25.0.1
     transitivePeerDependencies:
       - less

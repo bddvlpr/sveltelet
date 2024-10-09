@@ -66,10 +66,22 @@
     };
   });
 
+  $effect(() => {
+    const { opacity, zIndex } = options;
+
+    if (opacity) videoOverlay.setOpacity(opacity);
+    if (zIndex) videoOverlay.setZIndex(zIndex);
+
+    // TODO: Support bounds
+    videoOverlay.setUrl(url);
+  });
+
   setContext<LayerContext>(LayerContextKey, {
     ...layerContext,
     getLayer: () => videoOverlay
   });
+
+  export const getVideoOverlay = () => videoOverlay;
 </script>
 
 {#if mounted}
