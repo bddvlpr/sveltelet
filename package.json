@@ -26,6 +26,9 @@
     "!dist/**/*.test.*",
     "!dist/**/*.spec.*"
   ],
+  "engines": {
+		"pnpm": "^9.0.0"
+	},
   "peerDependencies": {
     "svelte": "^5.0.0-next.1"
   },
