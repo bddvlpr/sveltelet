@@ -8,5 +8,8 @@ export default {
   theme: {
     extend: {}
   },
+  daisyui: {
+    logs: false
+  },
   plugins: [typography, daisyui]
 } satisfies Config;

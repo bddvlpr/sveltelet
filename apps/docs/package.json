@@ -4,6 +4,7 @@
   "author": "Luna Simons <luna@bddvlpr.com>",
   "license": "MIT",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

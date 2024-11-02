@@ -4,11 +4,13 @@
   "author": "Luna Simons <luna@bddvlpr.com>",
   "license": "MIT",
   "type": "module",
+  "private": true,
   "scripts": {
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write . && eslint . --fix"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin": "^1.0.1",
