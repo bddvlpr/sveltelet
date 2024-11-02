@@ -1,7 +1,6 @@
+import { Map } from '$lib/index.js';
 import { render } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
-
-import Map from './map.svelte';
 
 it('(un)renders', () => {
   const { unmount } = render(Map, {
