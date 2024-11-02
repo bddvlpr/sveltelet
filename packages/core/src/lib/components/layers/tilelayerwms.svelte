@@ -30,7 +30,7 @@
 
   let map = $derived(mapContext.getMap());
   let parent = $derived(layerContext.getLayerGroup());
-  let control = $derived(controlContext.getLayerControl());
+  let control = $derived(controlContext.getLayersControl());
 
   onMount(() => {
     tileLayerWMS = new TileLayer.WMS(url, options);

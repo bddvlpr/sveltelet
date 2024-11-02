@@ -41,7 +41,7 @@
     getLayerGroup: () => null
   });
   setContext<ControlContext>(ControlContextKey, {
-    getLayerControl: () => null
+    getLayersControl: () => null
   });
 
   $effect(() => {

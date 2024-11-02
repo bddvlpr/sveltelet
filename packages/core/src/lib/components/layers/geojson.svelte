@@ -28,7 +28,7 @@
 
   let map = $derived(mapContext.getMap());
   let parent = $derived(layerContext.getLayerGroup());
-  let control = $derived(controlContext.getLayerControl());
+  let control = $derived(controlContext.getLayersControl());
 
   onMount(() => {
     geoJSON = new GeoJSON(object, options);
@@ -59,4 +59,6 @@
       }
     };
   });
+
+  export const getGeoJSON = () => geoJSON;
 </script>
