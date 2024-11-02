@@ -1,10 +1,11 @@
 <script lang="ts">
+  import type { GeoJsonObject } from 'geojson';
+
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { GeoJSON, layerGroup, type GeoJSONOptions } from 'leaflet';
+  import { GeoJSON, type GeoJSONOptions } from 'leaflet';
   import { getContext, onMount } from 'svelte';
-  import type { GeoJsonObject } from 'geojson';
 
   const {
     name = 'Unnamed geojson',
@@ -22,8 +23,6 @@
   const mapContext = getContext<MapContext>(MapContextKey);
   const layerContext = getContext<LayerContext>(LayerContextKey);
   const controlContext = getContext<ControlContext>(ControlContextKey);
-
-  let mounted = $state(false);
 
   let geoJSON: GeoJSON;
 
@@ -51,10 +50,8 @@
     } else {
       map.addLayer(geoJSON);
     }
-    mounted = true;
 
     return () => {
-      mounted = false;
       geoJSON.remove();
 
       if (control) {
