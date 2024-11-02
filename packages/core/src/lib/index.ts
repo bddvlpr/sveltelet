@@ -9,13 +9,14 @@ import ZoomControl from './components/controls/zoomcontrol.svelte';
 
 export { AttributionControl, LayersControl, ScaleControl, ZoomControl };
 
+import GeoJSON from './components/layers/geojson.svelte';
 import ImageOverlay from './components/layers/imageoverlay.svelte';
 import LayerGroup from './components/layers/layergroup.svelte';
 import TileLayer from './components/layers/tilelayer.svelte';
 import TileLayerWMS from './components/layers/tilelayerwms.svelte';
 import VideoOverlay from './components/layers/videooverlay.svelte';
 
-export { ImageOverlay, LayerGroup, TileLayer, TileLayerWMS, VideoOverlay };
+export { GeoJSON, ImageOverlay, LayerGroup, TileLayer, TileLayerWMS, VideoOverlay };
 
 import Marker from './components/ui/marker.svelte';
 

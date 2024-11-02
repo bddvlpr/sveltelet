@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Map, MapOptions } from 'leaflet';
+  import type { Map as LMap, MapOptions } from 'leaflet';
 
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
@@ -18,7 +18,7 @@
   let mounted = $state(false);
 
   let element: HTMLDivElement;
-  let map: Map;
+  let map: LMap;
 
   onMount(() => {
     map = L.map(element, options);

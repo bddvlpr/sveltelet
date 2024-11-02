@@ -2,21 +2,22 @@
   import { type ControlContext, ControlContextKey } from '$lib/context/control.js';
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { LayerGroup, type LayerOptions } from 'leaflet';
-  import { getContext, onMount, setContext, type Snippet } from 'svelte';
+  import { GeoJSON, layerGroup, type GeoJSONOptions } from 'leaflet';
+  import { getContext, onMount } from 'svelte';
+  import type { GeoJsonObject } from 'geojson';
 
   const {
-    name = 'Unnamed layer group',
+    name = 'Unnamed geojson',
     overlay = false,
     add = true,
-    children,
+    object,
     ...options
   }: {
     name?: string;
     overlay?: boolean;
     add?: boolean;
-    children?: Snippet;
-  } & LayerOptions = $props();
+    object: GeoJsonObject;
+  } & GeoJSONOptions = $props();
 
   const mapContext = getContext<MapContext>(MapContextKey);
   const layerContext = getContext<LayerContext>(LayerContextKey);
@@ -24,53 +25,41 @@
 
   let mounted = $state(false);
 
-  let layerGroup: LayerGroup;
+  let geoJSON: GeoJSON;
 
   let map = $derived(mapContext.getMap());
   let parent = $derived(layerContext.getLayerGroup());
   let control = $derived(controlContext.getLayerControl());
 
   onMount(() => {
-    layerGroup = new LayerGroup([], options);
+    geoJSON = new GeoJSON(object, options);
   });
 
   $effect(() => {
     if (parent) {
-      parent.addLayer(layerGroup);
+      parent.addLayer(geoJSON);
     } else if (control) {
       if (overlay) {
-        control.addOverlay(layerGroup, name);
+        control.addOverlay(geoJSON, name);
       } else {
-        control.addBaseLayer(layerGroup, name);
+        control.addBaseLayer(geoJSON, name);
       }
 
       if (add) {
-        layerGroup.addTo(map);
+        geoJSON.addTo(map);
       }
     } else {
-      map.addLayer(layerGroup);
+      map.addLayer(geoJSON);
     }
     mounted = true;
 
     return () => {
       mounted = false;
-      layerGroup.remove();
+      geoJSON.remove();
 
       if (control) {
-        control.removeLayer(layerGroup);
+        control.removeLayer(geoJSON);
       }
     };
   });
-
-  setContext<LayerContext>(LayerContextKey, {
-    ...layerContext,
-    getLayerGroup: () => layerGroup,
-    getLayer: () => layerGroup
-  });
-
-  export const getLayerGroup = () => layerGroup;
 </script>
-
-{#if mounted}
-  {@render children?.()}
-{/if}
