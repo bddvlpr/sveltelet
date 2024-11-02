@@ -19,8 +19,10 @@ import VideoOverlay from './components/layers/videooverlay.svelte';
 export { GeoJSON, ImageOverlay, LayerGroup, TileLayer, TileLayerWMS, VideoOverlay };
 
 import Marker from './components/ui/marker.svelte';
+import Popup from './components/ui/popup.svelte';
+import Tooltip from './components/ui/tooltip.svelte';
 
-export { Marker };
+export { Marker, Popup, Tooltip };
 
 import Circle from './components/vector/circle.svelte';
 import Polygon from './components/vector/polygon.svelte';
