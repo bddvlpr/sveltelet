@@ -20,6 +20,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm -r build
       - run: pnpm -r check
 
   test:
@@ -34,4 +35,5 @@ jobs:
           node-version: '18.x'
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm -r build
       - run: pnpm -r test
