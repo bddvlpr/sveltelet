@@ -22,9 +22,11 @@ import Marker from './components/ui/marker.svelte';
 export { Marker };
 
 import Circle from './components/vector/circle.svelte';
+import Polygon from './components/vector/polygon.svelte';
 import Polyline from './components/vector/polyline.svelte';
+import Rectangle from './components/vector/rectangle.svelte';
 
-export { Circle, Polyline };
+export { Circle, Polygon, Polyline, Rectangle };
 
 export * from './context/control.js';
 export * from './context/layer.js';

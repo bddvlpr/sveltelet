@@ -38,4 +38,6 @@
   $effect(() => {
     polyline.setLatLngs(latLngs);
   });
+
+  export const getPolyline = () => polyline;
 </script>

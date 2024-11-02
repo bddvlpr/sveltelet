@@ -13,11 +13,12 @@
 
   $effect(() => {
     zoomControl = new Control.Zoom(options);
-
     map.addControl(zoomControl);
 
     return () => {
       map.removeControl(zoomControl);
     };
   });
+
+  export const getZoomControl = () => zoomControl;
 </script>

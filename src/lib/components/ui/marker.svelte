@@ -49,6 +49,8 @@
     ...layerContext,
     getLayer: () => marker
   });
+
+  export const getMarker = () => marker;
 </script>
 
 {#if mounted}

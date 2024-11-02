@@ -19,4 +19,6 @@
       map.removeControl(scaleControl);
     };
   });
+
+  export const getScaleControl = () => scaleControl;
 </script>

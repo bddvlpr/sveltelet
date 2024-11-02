@@ -19,11 +19,12 @@
   $effect(() => {
     attributionControl = new Control.Attribution(options);
     attributionControl.addAttribution(text);
-
     map.addControl(attributionControl);
 
     return () => {
       map.removeControl(attributionControl);
     };
   });
+
+  export const getAttributionControl = () => attributionControl;
 </script>

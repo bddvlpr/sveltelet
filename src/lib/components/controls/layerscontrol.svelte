@@ -38,6 +38,8 @@
     ...controlContext,
     getLayerControl: () => layersControl
   });
+
+  export const getLayersControl = () => layersControl;
 </script>
 
 {#if mounted}

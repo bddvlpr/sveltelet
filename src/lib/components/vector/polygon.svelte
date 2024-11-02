@@ -1,46 +1,41 @@
 <script lang="ts">
   import { type LayerContext, LayerContextKey } from '$lib/context/layer.js';
   import { type MapContext, MapContextKey } from '$lib/context/map.js';
-  import { Circle, type CircleOptions, type LatLngExpression } from 'leaflet';
+  import { type LatLngExpression, Polygon, type PolylineOptions } from 'leaflet';
   import { getContext, onMount } from 'svelte';
 
   const {
-    latLng,
-    radius,
+    latLngs,
     ...options
-  }: {
-    latLng: LatLngExpression;
-    radius?: number;
-  } & CircleOptions = $props();
+  }: { latLngs: LatLngExpression[] | LatLngExpression[][] } & PolylineOptions = $props();
 
   const mapContext = getContext<MapContext>(MapContextKey);
   const layerContext = getContext<LayerContext>(LayerContextKey);
 
-  let circle: Circle;
+  let polygon: Polygon;
 
   let map = $derived(mapContext.getMap());
   let layerGroup = $derived(layerContext.getLayerGroup());
 
   onMount(() => {
-    circle = new Circle(latLng, radius, { ...options, radius });
+    polygon = new Polygon(latLngs, options);
   });
 
   $effect(() => {
     if (layerGroup) {
-      layerGroup.addLayer(circle);
+      polygon.addTo(layerGroup);
     } else {
-      map.addLayer(circle);
+      polygon.addTo(map);
     }
 
     return () => {
-      circle.remove();
+      polygon.remove();
     };
   });
 
   $effect(() => {
-    circle.setLatLng(latLng);
-    circle.setRadius(radius);
+    polygon.setLatLngs(latLngs);
   });
 
-  export const getCircle = () => circle;
+  export const getPolygon = () => polygon;
 </script>

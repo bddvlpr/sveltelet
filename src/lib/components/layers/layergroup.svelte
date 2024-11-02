@@ -35,7 +35,9 @@
   });
 
   $effect(() => {
-    if (control) {
+    if (parent) {
+      parent.addLayer(layerGroup);
+    } else if (control) {
       if (overlay) {
         control.addOverlay(layerGroup, name);
       } else {
@@ -45,8 +47,6 @@
       if (add) {
         layerGroup.addTo(map);
       }
-    } else if (parent) {
-      parent.addLayer(layerGroup);
     } else {
       map.addLayer(layerGroup);
     }
@@ -68,6 +68,8 @@
     getLayerGroup: () => layerGroup,
     getLayer: () => layerGroup
   });
+
+  export const getLayerGroup = () => layerGroup;
 </script>
 
 {#if mounted}

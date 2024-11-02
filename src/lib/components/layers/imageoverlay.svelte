@@ -66,10 +66,22 @@
     };
   });
 
+  $effect(() => {
+    const { opacity, zIndex } = options;
+
+    if (opacity) imageOverlay.setOpacity(opacity);
+    if (zIndex) imageOverlay.setZIndex(zIndex);
+
+    // TODO: Support bounds
+    imageOverlay.setUrl(url);
+  });
+
   setContext<LayerContext>(LayerContextKey, {
     ...layerContext,
     getLayer: () => imageOverlay
   });
+
+  export const getImageOverlay = () => imageOverlay;
 </script>
 
 {#if mounted}
