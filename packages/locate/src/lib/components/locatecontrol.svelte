@@ -14,7 +14,7 @@
   let map = $derived(mapContext.getMap());
 
   onMount(() => {
-    // @ts-ignore This library is so cursed that this is necessary.
+    // @ts-expect-error This library is so cursed that this is necessary.
     locateControl = lc.locate(options);
   });
 
