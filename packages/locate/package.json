@@ -1,6 +1,6 @@
 {
   "name": "@sveltelet/locate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Luna Simons <luna@bddvlpr.com>",
   "license": "MIT",
   "type": "module",
@@ -32,6 +32,7 @@
   },
   "peerDependencies": {
     "leaflet": "^1.9.4",
+    "leaflet.locatecontrol": "^0.82.0",
     "svelte": "^5.0.0"
   },
   "devDependencies": {

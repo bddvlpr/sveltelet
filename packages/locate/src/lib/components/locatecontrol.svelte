@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type MapContext, MapContextKey } from '@sveltelet/core';
   import { Control } from 'leaflet';
-  import * as L from 'leaflet.locatecontrol';
+  import * as lc from 'leaflet.locatecontrol';
   import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css';
   import { getContext, onMount } from 'svelte';
 
@@ -14,8 +14,8 @@
   let map = $derived(mapContext.getMap());
 
   onMount(() => {
-    // @ts-ignore This scuffed package...
-    locateControl = new L.LocateControl(options);
+    // @ts-ignore This library is so cursed that this is necessary.
+    locateControl = lc.locate(options);
   });
 
   $effect(() => {
